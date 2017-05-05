@@ -9,7 +9,7 @@ namespace Tetris
 {
     class BigRectangle : GameObject
     {
-        
+
         Color color = Color.BigRectanglColor;
         public byte[,] bigRectangl { get; } = new byte[2, 2]
         {
@@ -32,25 +32,26 @@ namespace Tetris
 
         public override void Update(Field Field)
         {
-            if (y != graphics.ClientHeight - size * 2)
+            if (y != graphics.ClientHeight - size * 2 && Field.Rectangles[y / size + 2, x / size].CelsValue != 1)
             {
                 if (Input.IsKeyDown(Keys.LEFT))
                 {
-                    if (x > 0) x -= size;
+                    if (x > 0 && Field.Rectangles[y / size, x / size - 1].CelsValue == 0) x -= size;
                     else x += 0;
                 }
                 else if (Input.IsKeyDown(Keys.RIGHT))
                 {
-                    if (x < graphics.ClientWidth - size * 2 - 5) x += size;
+                    if (x < graphics.ClientWidth - size * 2 - 5 && Field.Rectangles[y / size, x / size + 1].CelsValue == 0) x += size;
                     else x += 0;
                 }
                 if (Input.IsKeyDown(Keys.DOWN))
                 {
-                    if (y < graphics.ClientHeight - size) y += size;
+                    //Field.Rectangles[y / size + 1, x / size].CelsValue == 0)
+                    if (y < graphics.ClientHeight - size)  y += size;
                     else y += 0;
                 }
                 if (i % 10 == 0)
-                {
+                {                   
                     if (y < graphics.ClientHeight - size) y += size;
                     else y += 0;
                 }
@@ -64,8 +65,8 @@ namespace Tetris
                 {
                     for (int j = 0; j < bigRectangl.GetLength(1); j++)
                     {
-                        Field.Rectangles[(fieldY / size)-1, (fieldX / size)-1].Color = color;
-                        Field.Rectangles[(fieldY / size)-1, (fieldX / size)-1].CelsValue = bigRectangl[i, j];
+                        Field.Rectangles[fieldY / size, fieldX / size].Color = color;
+                        Field.Rectangles[fieldY / size, fieldX / size].CelsValue = bigRectangl[i, j];
                         fieldX += size;
                     }
 

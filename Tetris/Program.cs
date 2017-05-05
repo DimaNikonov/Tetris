@@ -19,9 +19,11 @@ namespace Tetris
             Console.Clear();
 
             ConsoleGraphics graphics = new ConsoleGraphics();
+            //Console.WriteLine(graphics.ClientHeight);
+            //Console.WriteLine(graphics.ClientWidth);
             GameEngine engine = new TetrisGameEngine(graphics);
             Field Field = new Field(graphics);
-            Field.FillField();
+            Field.FillField(graphics);
             engine.Start(Field);
         }
 

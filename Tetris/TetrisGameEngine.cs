@@ -14,8 +14,7 @@ namespace Tetris
         {
             var BigRectangle = new BigRectangle(graphics);
             AddObject(BigRectangle);
-            Field Field = new Field(graphics);
-            AddObject(Field);
+           
         }
     }
 }
