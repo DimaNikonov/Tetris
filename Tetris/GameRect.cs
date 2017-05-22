@@ -7,20 +7,17 @@ using NConsoleGraphics;
 
 namespace Tetris
 {
-    class GameRect : GameObject
+    class GameRect : IGameObject
     {
-        private int i = 0;
-        public int x { get; set; } = 150;
-        public int y { get; set; } = 0;
-        private const int size = 25;
+       
         ConsoleGraphics graphics;
 
         public GameRect(ConsoleGraphics graphics)
         {
             this.graphics = graphics;
         }
-        
-        public override void Update(Field field)
+
+        public override bool Update(Field field, GameEngine engine)
         {
             if (y != graphics.ClientHeight - size)
             {
@@ -39,13 +36,14 @@ namespace Tetris
                     if (y < graphics.ClientHeight - size) y += size;
                     else y += 0;
                 }
-                if (i % 10 == 0)
+                if (iter % 10 == 0)
                 {
                     if (y < graphics.ClientHeight - size) y += size;
                     else y += 0;
                 }
-                i++;
-            }
+                iter++;
+                
+            }return endGame = false;
         }
 
         public override void Render(ConsoleGraphics graphics)

@@ -7,10 +7,17 @@ using NConsoleGraphics;
 
 namespace Tetris
 {
-    abstract class GameObject
+    abstract class IGameObject
     {
-        
-        public abstract void Update(Field Field);
+        public bool endGame { get; set; } = true;
+        public int iter=0;
+        public int x { get; set; } = startX;
+        public int y { get; set; } = startY;
+        public const int size = 25;
+        public const int startX = 150;
+        public const int startY = 0;       
+
+        public abstract bool Update(Field Field, GameEngine engine);
 
         public virtual void Render(ConsoleGraphics graphics)
         {

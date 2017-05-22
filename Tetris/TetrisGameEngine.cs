@@ -12,9 +12,11 @@ namespace Tetris
         public TetrisGameEngine(ConsoleGraphics graphics)
             : base(graphics)
         {
-            var BigRectangle = new BigRectangle(graphics);
-            AddObject(BigRectangle);
-           
+            AddObject(new BigRectangle(graphics));
+            //var LFigure = new L(graphics);
+            //LFigure.CreatFigure();
+            //AddObject(LFigure);
+
         }
     }
 }

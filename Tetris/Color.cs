@@ -8,13 +8,13 @@ namespace Tetris
 {
     public enum Color : uint
     {
-        DEfaultColoor = 0xFFFFFFFF,
-        BigRectanglColor = 0xFFD5FF30,
-        LColor = 0xff306eff,
-        LineColor = 0xFF80bfff,
-        MirrorLColor = 0xFF003ae8,
-        MirrorZColor = 0xFFb8fbff,
-        TColor = 0xFF070098,
-        ZColor = 0xFF269800
+        DEfaultColor = 0xFFFFFFFF,
+        BigRectanglColor = 0xFFffff00,
+        LColor = 0xff00ff00,
+        LineColor = 0xFF00ffff,
+        MirrorLColor = 0xFF0000ff,
+        MirrorZColor = 0xFF008080,
+        TColor = 0xFFff00ff,
+        ZColor = 0xFF800080
     };
 }

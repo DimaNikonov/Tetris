@@ -11,7 +11,8 @@ namespace Tetris
     {
         static void Main(string[] args)
         {
-            Console.WindowHeight = 59;
+            Console.SetWindowPosition(0, 0);
+            Console.WindowHeight = 34;
             Console.WindowWidth = 48;
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             Console.BackgroundColor = ConsoleColor.White;
@@ -24,9 +25,11 @@ namespace Tetris
             GameEngine engine = new TetrisGameEngine(graphics);
             Field Field = new Field(graphics);
             Field.FillField(graphics);
-            engine.Start(Field);
+            engine.Start(Field, engine);
+            graphics.FillRectangle(0xFFFFFFFF, 0, 0, graphics.ClientWidth, graphics.ClientHeight);
+            graphics.FlipPages();
+            Console.WriteLine("game is over");
+            Console.ReadLine();
         }
-
-        
     }
 }
