@@ -27,7 +27,7 @@ namespace Tetris
             objects.Remove(obj);
         }
 
-        public void Start(Field Field,GameEngine engine)
+        public void Start(Field Field,GameEngine Engine)
         {
             int indexObject = rnd.Next(0, objects.Count);
             bool gameState = true;
@@ -35,7 +35,7 @@ namespace Tetris
             {
                 //foreach (var item in gameObject)
                 //{
-                objects[indexObject].Update(Field, engine);
+                objects[indexObject].Update(Field, Engine);
                 gameState = objects[indexObject].endGame;
                 //}
 

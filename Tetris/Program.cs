@@ -30,6 +30,12 @@ namespace Tetris
             graphics.FlipPages();
             Console.WriteLine("game is over");
             Console.ReadLine();
+            Console.WriteLine("Play again? ");
+            Console.WriteLine(" if yes press any key");
+            Console.WriteLine("if no press escape");
+            var  key = Console.ReadKey();
+            if (key.Key != ConsoleKey.Escape) Main(null);
+
         }
     }
 }
